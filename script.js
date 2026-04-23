@@ -21,20 +21,38 @@ if (themeToggle) {
     };
 }
 
-// Mouse tracking
+// --- Active Link Detection ---
+const currentPath = window.location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll('.nav-link-sub').forEach(link => {
+    if (link.getAttribute('href') === currentPath) link.classList.add('active');
+});
+
+// --- System Analytics Logic ---
+let seconds = 0;
+setInterval(() => {
+    seconds++;
+    const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+    const secs = (seconds % 60).toString().padStart(2, '0');
+    if (document.getElementById('uptime')) document.getElementById('uptime').textContent = `${mins}:${secs}`;
+}, 1000);
+
 window.addEventListener('mousemove', e => {
     document.body.style.setProperty('--x', e.clientX + 'px');
     document.body.style.setProperty('--y', e.clientY + 'px');
+    if (document.getElementById('coords')) document.getElementById('coords').textContent = `${e.clientX}, ${e.clientY}`;
 });
 
-// Auto-detect Active Page
-const currentPath = window.location.pathname.split("/").pop() || "index.html";
-document.querySelectorAll('.nav-link-sub').forEach(link => {
-    if (link.getAttribute('href') === currentPath) {
-        link.classList.add('active');
-    }
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = Math.round((winScroll / height) * 100);
+    if (document.getElementById('scroll-pct')) document.getElementById('scroll-pct').textContent = `${scrolled}%`;
+    
+    const progress = document.querySelector('.scroll-progress');
+    if (progress) progress.style.width = scrolled + '%';
 });
 
+// --- Content Reveal & Typewriter ---
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -63,9 +81,12 @@ const typeEffect = () => {
 document.addEventListener('DOMContentLoaded', () => {
     typeEffect();
     document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
-    window.onscroll = () => {
-        const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        const progress = document.querySelector('.scroll-progress');
-        if (progress) progress.style.width = scrolled + '%';
-    };
+    const platform = window.navigator.platform;
+    const osEl = document.getElementById('user-os');
+    if (osEl) {
+        if (platform.includes('Win')) osEl.textContent = 'WINDOWS';
+        else if (platform.includes('Mac')) osEl.textContent = 'MACOS';
+        else if (platform.includes('Linux')) osEl.textContent = 'LINUX';
+        else osEl.textContent = 'WEB-AGENT';
+    }
 });
