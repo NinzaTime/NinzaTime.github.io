@@ -14,7 +14,7 @@ body:not(.dark-mode) {
     --text: #000000;
     --accent: #6c5ce7;
     --accent-rgb: 108, 92, 231;
-    --highlight: rgba(231, 222, 92, 0.2);
+    --highlight: rgba(255, 245, 110, 0.4);
     --glass: rgba(255, 255, 255, 0.9);
     --border: rgba(0, 0, 0, 0.1);
     --online: #28a745;
@@ -81,9 +81,9 @@ body {
 .revision-mark {
     background: linear-gradient(120deg, var(--highlight) 0%, var(--highlight) 100%);
     background-repeat: no-repeat;
-    background-size: 100% 0.8em;
+    background-size: 100% 1em;
     background-position: 0 80%;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .bento-card {
