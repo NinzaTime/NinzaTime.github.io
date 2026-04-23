@@ -1,7 +1,7 @@
 :root {
     --bg: #050505;
     --text: #e0e0e0;
-    --accent: #00ffcc;
+    --accent: #8400ff;
     --accent-rgb: 0, 255, 204;
     --glass: rgba(15, 15, 15, 0.75);
     --border: rgba(255, 255, 255, 0.1);
@@ -11,7 +11,7 @@
 body:not(.dark-mode) {
     --bg: #ffffff;
     --text: #000000;
-    --accent: #5d3fd3;
+    --accent: #b1cc1b;
     --accent-rgb: 93, 63, 211;
     --glass: rgba(255, 255, 255, 0.95);
     --border: rgba(0, 0, 0, 0.15);

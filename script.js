@@ -7,7 +7,7 @@ const applyTheme = (theme) => {
         themeToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
     }
     // Synchronize spotlight colors with theme
-    document.body.style.setProperty('--accent-rgb', isDark ? '0, 255, 204' : '93, 63, 211');
+    document.body.style.setProperty('--accent-rgb', isDark ? '189, 147, 249' : '108, 92, 231');
 };
 
 const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
