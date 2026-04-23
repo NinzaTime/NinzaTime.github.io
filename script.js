@@ -1,4 +1,4 @@
-// --- 1. THEME ENGINE ---
+// --- Theme Management ---
 const themeToggle = document.getElementById('theme-toggle');
 const applyTheme = (theme) => {
     const isDark = theme === 'dark';
@@ -19,9 +19,10 @@ if (themeToggle) {
     };
 }
 
-// --- 2. UPTIME PERSISTENCE ---
-let bootTime = localStorage.getItem('portfolio-boot-time') || Date.now();
-if (!localStorage.getItem('portfolio-boot-time')) {
+// --- Persistent Uptime Engine ---
+let bootTime = localStorage.getItem('portfolio-boot-time');
+if (!bootTime) {
+    bootTime = Date.now();
     localStorage.setItem('portfolio-boot-time', bootTime);
 }
 
@@ -33,11 +34,15 @@ setInterval(() => {
     if (uptimeEl) uptimeEl.textContent = `${mins}:${secs}`;
 }, 1000);
 
-// --- 3. MOUSE & SPARKLE INTERACTION ---
+// --- Mouse Interaction & Sparkles ---
 window.addEventListener('mousemove', e => {
     document.body.style.setProperty('--x', e.clientX + 'px');
     document.body.style.setProperty('--y', e.clientY + 'px');
     
+    const coords = document.getElementById('coords');
+    if (coords) coords.textContent = `${e.clientX}, ${e.clientY}`;
+
+    // Sparkle generation
     const sparkle = document.createElement('div');
     sparkle.className = 'sparkle';
     sparkle.style.left = e.clientX + 'px';
@@ -45,58 +50,58 @@ window.addEventListener('mousemove', e => {
     const size = Math.random() * 5 + 2;
     sparkle.style.width = `${size}px`;
     sparkle.style.height = `${size}px`;
-    
     document.body.appendChild(sparkle);
-    setTimeout(() => {
-        sparkle.remove();
-    }, 800);
+    setTimeout(() => sparkle.remove(), 800);
 });
 
-// --- 4. DECODE REVEAL (STABILIZED SPEED) ---
+// --- Scramble Logic (Typewriter) ---
 const decodeEffect = () => {
     const el = document.getElementById('typewriter');
     if (!el) return;
     const targetText = el.dataset.value || "Logic, Strategy, and Systems.";
     const chars = "!<>-_\\/[]{}—=+*^?#________";
     let iteration = 0;
-    
     const interval = setInterval(() => {
         el.innerText = targetText.split("").map((letter, index) => {
             if (index < iteration) return targetText[index];
             return chars[Math.floor(Math.random() * chars.length)];
         }).join("");
-        
-        if (iteration >= targetText.length) {
-            clearInterval(interval);
-        }
-        
-        iteration += 1; 
-    }, 20); 
+        if (iteration >= targetText.length) clearInterval(interval);
+        iteration += 1 / 3;
+    }, 30);
 };
 
-// --- 5. INITIALIZATION ---
+// --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     decodeEffect();
     
+    // Auto-active Navbar Links
     const currentPath = window.location.pathname.split("/").pop() || "index.html";
     document.querySelectorAll('.nav-link-sub').forEach(link => {
-        if (link.getAttribute('href') === currentPath) {
-            link.classList.add('active');
-        }
+        if (link.getAttribute('href') === currentPath) link.classList.add('active');
     });
 
+    // Reveal Observer
     const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            }
-        });
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
     }, { threshold: 0.1 });
-    
     document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
-    
+
+    // OS Detection
+    const platform = window.navigator.platform;
     const osEl = document.getElementById('user-os');
-    if (osEl) {
-        osEl.textContent = window.navigator.platform.includes('Win') ? 'WINDOWS' : 'MACOS';
-    }
+    if (osEl) osEl.textContent = platform.includes('Win') ? 'WINDOWS' : platform.includes('Mac') ? 'MACOS' : 'LINUX';
+});
+
+// --- Scroll Progress ---
+window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = Math.round((winScroll / height) * 100);
+    
+    const scrollPct = document.getElementById('scroll-pct');
+    if (scrollPct) scrollPct.textContent = `${scrolled}%`;
+    
+    const progress = document.querySelector('.scroll-progress');
+    if (progress) progress.style.width = scrolled + '%';
 });
