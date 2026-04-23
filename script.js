@@ -1,6 +1,5 @@
 // Theme Logic
 const themeToggle = document.getElementById('theme-toggle');
-
 const applyTheme = (theme) => {
     const isDark = theme === 'dark';
     document.body.classList.toggle('dark-mode', isDark);

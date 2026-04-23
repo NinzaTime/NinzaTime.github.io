@@ -25,6 +25,7 @@ body {
     overflow-x: hidden;
 }
 
+/* Sparkles: Set to -1 so they stay behind text/boxes */
 .sparkle {
     position: fixed;
     background: var(--accent);
@@ -40,6 +41,7 @@ body {
     100% { transform: scale(0); opacity: 0; }
 }
 
+/* Navbar Brand Color Fix */
 .navbar-brand {
     color: var(--text) !important;
     font-weight: 800;
@@ -66,6 +68,7 @@ body {
     box-shadow: 0 0 10px var(--accent);
 }
 
+/* Bento Card: Hover Highlight Restored */
 .bento-card {
     background: var(--glass);
     backdrop-filter: blur(20px);
@@ -86,9 +89,10 @@ body {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--accent-rgb), 0.1);
 }
 
+/* Theme Toggle Button Styling */
 #theme-toggle {
     position: fixed;
-    bottom: 5rem;
+    bottom: 5rem; /* Moved up to avoid system stats overlap */
     right: 2rem;
     background: var(--glass);
     backdrop-filter: blur(10px);
@@ -125,17 +129,3 @@ body {
 .stat-item span { color: var(--text); }
 .pulse { animation: stat-pulse 1.5s infinite; }
 @keyframes stat-pulse { 50% { opacity: 0.4; } }
-
-.scroll-progress {
-    position: fixed;
-    top: 0; left: 0; height: 4px;
-    background: var(--accent);
-    width: 0%; z-index: 3000;
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 1s cubic-bezier(0.2, 1, 0.2, 1);
-}
-.reveal.active { opacity: 1; transform: translateY(0); }
