@@ -3,9 +3,7 @@ const themeToggle = document.getElementById('theme-toggle');
 const applyTheme = (theme) => {
     const isDark = theme === 'dark';
     document.body.classList.toggle('dark-mode', isDark);
-    if (themeToggle) {
-        themeToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
-    }
+    if (themeToggle) themeToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
     document.body.style.setProperty('--accent-rgb', isDark ? '189, 147, 249' : '108, 92, 231');
 };
 
@@ -21,13 +19,48 @@ if (themeToggle) {
     };
 }
 
-// --- Active Link Detection ---
-const currentPath = window.location.pathname.split("/").pop() || "index.html";
-document.querySelectorAll('.nav-link-sub').forEach(link => {
-    if (link.getAttribute('href') === currentPath) link.classList.add('active');
+// Sparkles and Spotlight Logic
+window.addEventListener('mousemove', e => {
+    document.body.style.setProperty('--x', e.clientX + 'px');
+    document.body.style.setProperty('--y', e.clientY + 'px');
+
+    // Create Sparkle
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    sparkle.style.left = e.clientX + 'px';
+    sparkle.style.top = e.clientY + 'px';
+    
+    const size = Math.random() * 6 + 2;
+    sparkle.style.width = `${size}px`;
+    sparkle.style.height = `${size}px`;
+    
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 800);
 });
 
-// --- System Analytics Logic ---
+// Decode Effect Logic
+const decodeEffect = () => {
+    const el = document.getElementById('typewriter');
+    if (!el) return;
+    
+    const targetText = "Logic, Strategy, and Systems.";
+    const chars = "!<>-_\\/[]{}—=+*^?#________";
+    let iteration = 0;
+    
+    const interval = setInterval(() => {
+        el.innerText = targetText.split("")
+            .map((letter, index) => {
+                if (index < iteration) return targetText[index];
+                return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join("");
+
+        if (iteration >= targetText.length) clearInterval(interval);
+        iteration += 1 / 3;
+    }, 30);
+};
+
+// System Stats
 let seconds = 0;
 setInterval(() => {
     seconds++;
@@ -36,57 +69,36 @@ setInterval(() => {
     if (document.getElementById('uptime')) document.getElementById('uptime').textContent = `${mins}:${secs}`;
 }, 1000);
 
-window.addEventListener('mousemove', e => {
-    document.body.style.setProperty('--x', e.clientX + 'px');
-    document.body.style.setProperty('--y', e.clientY + 'px');
-    if (document.getElementById('coords')) document.getElementById('coords').textContent = `${e.clientX}, ${e.clientY}`;
+// Active Link and Reveal
+document.addEventListener('DOMContentLoaded', () => {
+    decodeEffect();
+    
+    const currentPath = window.location.pathname.split("/").pop() || "index.html";
+    document.querySelectorAll('.nav-link-sub').forEach(link => {
+        if (link.getAttribute('href') === currentPath) link.classList.add('active');
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add('active');
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
+
+    const platform = window.navigator.platform;
+    const osEl = document.getElementById('user-os');
+    if (osEl) {
+        if (platform.includes('Win')) osEl.textContent = 'WINDOWS';
+        else if (platform.includes('Mac')) osEl.textContent = 'MACOS';
+        else osEl.textContent = 'LINUX';
+    }
 });
 
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = Math.round((winScroll / height) * 100);
-    if (document.getElementById('scroll-pct')) document.getElementById('scroll-pct').textContent = `${scrolled}%`;
-    
     const progress = document.querySelector('.scroll-progress');
     if (progress) progress.style.width = scrolled + '%';
-});
-
-// --- Content Reveal & Typewriter ---
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-            entry.target.querySelectorAll('p, h2, h3, .revision-mark').forEach((el, i) => {
-                setTimeout(() => {
-                    el.style.opacity = "1";
-                    el.style.transform = "translateY(0)";
-                }, i * 100);
-            });
-        }
-    });
-}, { threshold: 0.1 });
-
-const titleText = "Logic, Strategy, and Systems.";
-let charIndex = 0;
-const typeEffect = () => {
-    const el = document.getElementById('typewriter');
-    if (el && charIndex < titleText.length) {
-        el.textContent += titleText.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeEffect, 75);
-    }
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-    typeEffect();
-    document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
-    const platform = window.navigator.platform;
-    const osEl = document.getElementById('user-os');
-    if (osEl) {
-        if (platform.includes('Win')) osEl.textContent = 'WINDOWS';
-        else if (platform.includes('Mac')) osEl.textContent = 'MACOS';
-        else if (platform.includes('Linux')) osEl.textContent = 'LINUX';
-        else osEl.textContent = 'WEB-AGENT';
-    }
 });
