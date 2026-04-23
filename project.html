@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Project 2 Revision | Yasha Kosarev</title>
+</head>
+<body>
+    <button id="theme-toggle">🌙 Dark Mode</button>
+    <nav class="navbar sticky-top reveal">
+        <div class="container d-flex flex-column align-items-center">
+            <a class="navbar-brand mb-2" href="index.html">YASHA KOSAREV</a>
+            <div class="d-flex justify-content-center gap-5">
+                <a class="nav-link-sub" href="index.html">HOME</a>
+                <a class="nav-link-sub" href="reflection.html">REFLECTION</a>
+                <a class="nav-link-sub" href="project.html">REVISION</a>
+                <a class="nav-link-sub" href="minor.html">ARTIFACTS</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div>
+            <div class="bento-card mb-5">
+                <h3 class="text-center mb-4">Major Project Revision</h3>
+                <div class="mla-format">
+                        <p>Yasha Kosarev<br>
+                        Professor Echavarria<br>
+                        ENC 2135<br>
+                        26 April 2026</p>
+                        
+                        <p class="text-center"><strong>The Quantum Shift and Digital Privacy in the New Age</strong></p>
+                        <p>Building upon the technical evolution of quantum hardware explored in Project 1, this campaign
+                        shifts toward a persuasive intervention, advocating for the immediate global adoption of Post-
+                        Quantum Cryptography (PQC). The urgency of this shift is driven by 'Harvest Now, Decrypt
+                        Later' tactics, where adversarial actors intercept encrypted traffic today to be retroactively
+                        unlocked once quantum processors reach the necessary qubit threshold. By targeting both cloud
+                        infrastructure leaders and the next generation of computer scientists, this project argues for a
+                        preemptive move beyond traditional RSA and Elliptic Curve Cryptography (ECC) before the
+                        'Quantum Apocalypse' (Y2Q) renders modern digital privacy permanently obsolete.
+                        </p>
+                        <p>Artifact 1: Technical Blog Post</p>
+                        <p>Target Audience: Senior Software Engineers and Systems Architects</p>
+                        <p>If you are still deploying production systems centered on RSA 2048 or ECC 256, you are
+                        effectively building a foundation of sand. As software engineers, we often treat encryption as an
+                        abstracted set and forget utility, but the mathematical viability of Shor’s algorithm has
+                        fundamentally altered the secure lifecycle of our code. Quantum computers do not need to be
+                        ubiquitous to be a threat; they only need to exist in a single adversarial data center to render your
+                        archived databases public. According to researchers, the decay of cryptographic standards happens retroactively, which means the code you write today is already aging toward a definitive
+                        break point (Bernstein and Lange 188).
+                        </p>
+                        <p>The transition to Post Quantum Cryptography (PQC) is a structural overhaul, not a simple library
+                        swap. It requires a fundamental shift toward lattice-based primitives, specifically those recently
+                        standardized in NIST FIPS 203. Algorithms like ML-KEM, formerly known as CRYSTALS
+                        Kyber, provide security by leveraging the Shortest Vector Problem in high-dimensional lattices
+                        (National Institute of Standards and Technology). This is a computational hurdle that remains
+                        exponentially difficult for both classical and quantum circuits. Unlike integer factorization,
+                        which quantum circuits can solve in polynomial time, lattice math forces the attacker back into a
+                        brute force scenario that is functionally impossible even with massive hardware scaling (Bos et
+                        al. 355).
+                        </p>
+                        <p>We must move beyond a reactive migration strategy because of the Harvest Now, Decrypt Later
+                        (HNDL) paradigm. Adversaries are already scraping encrypted traffic today with the intent of
+                        unlocking it tomorrow. To mitigate this, architects should prioritize implementing hybrid key
+                        exchanges today. This involves layering PQC on top of classical KEMs to provide immediate
+                        protection against historical decryption (Alvarez and Merino). Auditing your dependency on
+                        trees and preparing crypto agility is the only way to ensure your architecture is not obsolete
+                        before it even reaches its end of life.
+                        </p>
+                        <p>Artifact 2: Open Letter to Cloud Infrastructure CEOs</p>
+                        <p>Target Audience: Chief Executive Officers at AWS, Microsoft Azure, and Google Cloud</p>
+                        <p>To: Andy Jassy (Amazon), Satya Nadella (Microsoft), Sundar Pichai (Google)</p>
+                        <p>Subject: Urgent Accountability Regarding Retroactive Data Privacy and Quantum Threats</p>
+                        <p>Dear Mr. Jassy, Mr. Nadella, and Mr. Pichai,</p>
+                        <p>I am writing to address a critical vulnerability in the long term privacy of global data hosted on your platforms. Every day, petabytes of sensitive information are stored on your servers under encryption standards that are already mathematically obsolete against emerging threats. <span class="revision-mark">The current marketing surrounding your security infrastructure emphasizes military grade encryption, but this phrasing is inherently deceptive if it fails to account for the immediate exigence of quantum decryption.</span> Peer reviewed research indicates that current RSA and Elliptic Curve standards are highly susceptible to Shor's algorithm, which executes in polynomial time on fault tolerant quantum machines.
+                        </p>
+                        <p><span class="revision-mark">This is no longer a theoretical debate for the next decade; it is a matter of immediate structural accountability.</span> Adversaries are currently practicing data harvesting, stealing encrypted files today with the intent to decrypt them the moment quantum hardware scales. <span class="revision-mark">As the primary gatekeepers of digital privacy, you have a moral obligation to transition from a reactive security posture to a preemptive one.</span> It is your responsibility to make Post Quantum Cryptography the default standard across all cloud services. The National Institute of Standards and Technology has officially released the first set of finalized PQC standards, specifically FIPS 203, providing the necessary framework for this shift.
+                        </p>
+                        <p>I encourage you to commit the engineering effort necessary to secure our future before the window of opportunity closes. <span class="revision-mark">Failing to implement crypto agility today ensures that the privacy of your users is effectively pre-broken.</span> There is no such thing as retroactive privacy. <span class="revision-mark">Your leadership in this transition will determine whether your legacy is defined by the protection of global data or by the total exposure of the historical record.</span>
+                        </p>
+                        <p>Sincerely,</p>
+                        <p>Yasha Kosarev</p>
+                        <p>Cybersecurity Researcher, Florida State University</p>
+                        <p>Artifact 3: Educational Infographic Text & Layout</p>
+                        <p>Target Audience: 4th Year Computer Science Students</p>
+                        <p>The artifact is a high-density multimodal infographic, and its design is based on a dark, tech-
+                        inspired "Cyber-Noir" user interface. It has sections based on different colors, such as Green for
+                        the threats that are currently there, Orange for the threats that will be decrypted in the future, and
+                        Blue for professional action, to help the reader follow the "Harvest Now, Decrypt Later" timeline
+                        </p>
+                        <p>The header title reads, "YOUR CODE HAS A HALF-LIFE. IS IT QUANTUM-READY?" This
+                        is followed by a visual narrative flow. Point A: Today - The Harvest identifies state-sponsored
+                        data center attackers scraping and archiving current RSA-2048 packets (Mosca 2018). Point B:
+                        Future - The Decryption illustrates Shor’s Algorithm executing on a fault-tolerant quantum
+                        machine. This section emphasizes that archived packets from today will be unlocked in seconds,
+                        proving there is no such thing as retroactive privacy.
+                        </p>
+                        <p>A comparison table contrasts Classical Cryptography with Post-Quantum Cryptography.
+                        Classical relies on integer factorization (N = p * q) with exponential complexity, requiring
+                        trillions of years to break. PQC identifies the shift to Shor’s Period-Finding, which operates in
+                        the Polynomial complexity class, reducing break-time to hours. The verdict warns that classical
+                        methods are only "effectively secure for now" while PQC is "effectively broken when hardware
+                        scales."
+                        </p>
+                        <p>The infographic provides an "Urgent Protocol Audit" checklist for HTTPS (TLS 1.2/1.3), SSH,
+                        VPN (IPSec/IKEv2), and Code Signing Certificates. A "Career Exigence" section features a job
+                        market heatmap, noting that the tech industry is desperate for "Quantum-Agile" developers and
+                        currently offers a 15-20% salary premium. The final call to action features a QR code directing
+                        students to the NIST PQC Portal to audit their current dependencies.
+                        </p>
+                        <p>Rhetorical Rationale:</p>
+                        <p>The purpose of this multigenre campaign is to shift the conversation surrounding quantum computing from theoretical physics to immediate cybersecurity action. My investigative research in Project 1 revealed a significant gap between scientific progress and industry implementation. <span class="revision-mark">In order to fill this void, two main audiences were pinpointed for consideration: the CEOs of Cloud Infrastructure companies, as they hold the purse strings for the sector’s security budget; and <span class="revision-mark">undergraduate Computer Science seniors specializing in software architecture and cybersecurity. </span>Three different genres were chosen for their unique rhetorics. By utilizing a technical blog post, an open letter, and an educational infographic, I aim to create a sense of urgency, or exigence, that compels these groups to adopt Post Quantum Cryptography (PQC) before classical encryption methods are rendered obsolete.
+                        </p>
+                        <p>My first primary audience consists of executive leadership at major cloud firms like AWS and Google Cloud. These individuals are responsible for the long term safety of sensitive global data. They must be persuaded that the risk to their stored data is immediate rather than a theoretical problem for the next decade. <span class="revision-mark">The second target group, aspiring cybersecurity professionals at the senior undergraduate level, represents the technical frontline. </span>They are currently being taught traditional encryption in their core classes and need to be inspired to learn about PQC tools as soon as possible to avoid creating insecure systems in their future careers. Using an open letter for the CEOs and technical blogs or infographics for the students allows me to bridge the gap between high level risk management and current academic learning styles.
+                        </p>
+                        <p>For my first artifact, the technical blog post, I chose a medium that software developers and systems architects frequently use for professional development. This group values logos and practical utility. By using a blog format, I was able to employ a peer to peer tone that establishes ethos through technical accuracy. I explicitly mentioned specific algorithms like ML-KEM and CRYSTALS Kyber to show that I understand the discourse community’s language. This artifact addresses the technical exigence by providing a roadmap for auditing dependencies, moving the conversation from a vague threat to a concrete engineering task.
+                        </p>
+                        <p>My second artifact is an open letter addressed to the CEOs of Amazon, Microsoft, and Google. The rhetorical strategy is heavily influenced by the use of pathos and ethos. <span class="revision-mark">By framing the threat of Harvest Now, Decrypt Later as a moral failing of the leadership, I pivot the argument from a technical upgrade to a fundamental obligation of stewardship. </span>The letter carries professional weight and demands accountability for long term user privacy. It addresses the constraint of corporate inertia by framing PQC adoption not just as a technical upgrade, but as a fundamental obligation to their global user base. I integrated specific citations from Bernstein and Lange to provide the logical evidence required to prove that current encryption standards are already mathematically obsolete, effectively grounding the argument in scientific fact.
+                        </p>
+                        <p><span class="revision-mark">The third artifact, an educational infographic, specifically targets the high-density information requirements of senior technical students. This multimodal approach was necessary to simplify the underlying complexities of PQC, which can often act as a barrier to entry.</span> Following my peer review sessions, I made several critical changes to the artifact in order to enhance its rhetorical effectiveness. My reviewer noted that the technical details regarding Shor’s Algorithm were originally redundant across different sections. <span class="revision-mark">To resolve this, I merged the mathematical explanation into a single, unified visual timeline. The reasoning behind this choice was grounded in the theory of cognitive load: by giving one strong explanation about how Shor’s algorithm works in polynomial time, I made sure that the audience will not be overwhelmed by repeated information.</span>
+                        </p>
+                        <p>In addition, I have taken into account a particular visual limitation, by eliminating unnecessary parentheses in the titles to give it a professional look. Also, I have used a “Half Life” title metaphor that will speak the language of science for senior STEM students by making encryption not an eternal shield but a dying asset which needs maintenance. <span class="revision-mark">To counter the science fiction stigma where quantum computing feels too distant to effect current studies, I integrated a Career Exigence section in the infographic. By highlighting a 15-20% salary premium for quantum agile developers, I use pathos—specifically the desire for professional success—to motivate students to engage with the difficult logos of lattice based math. </span>In order to imbue this artifact with agency, I included a QR code linking to the NIST PQC Portal, which allows students to transition immediately from fear to action.
+                        </p>
+                        <p>As far as the visual rhetoric goes, I went with a Cyber Noir color scheme for this particular infographic as it relates to the cybersecurity culture. Dark backgrounds with neon accents evoke the aesthetic of modern digital security interfaces, which helps establish immediate genre recognition for my audience. This visual mode works in tandem with the alphabetic mode of the open letter: while the letter provides the formal authority, the infographic provides the fast, high impact data visualization that a student might scroll through on a professional forum or a campus display.
+                        </p>
+                        <p>In evaluating the efficiency of the campaign, it was necessary to employ the use of multiple genres. The essay would be too technical to convince the executives, and too broad to convince the students. However, by using the three genres of the message, it was possible to appeal to the Pathos, Logos, and Ethos of both groups respectively. <span class="revision-mark">This makes the message not just a technical communication, but rather a strategic persuasive tool that encourages individuals to take immediate action. </span>Ultimately, this campaign proves that technical communication requires more than just science, but rather the human element behind it that needs to be convinced to act.
+                        </p>
+                        <p class="text-center mb-4">Works Cited</p>
+                        <p>Auer, Raphael, et al. Quantum-Readiness for the Financial System: A Roadmap. BIS Papers No.
+                        158, Bank for International Settlements, July 2025, <a href="https://bis.org/publ/bppdf/bispap158.pdf">bis.org/publ/bppdf/bispap158.pdf</a>.
+                        </p>
+                        <p>Bernstein, D., Lange, T. Post-quantum cryptography. Nature 549, 188–194 (2017).
+                        <a href="https://doi.org/10.1038/nature23461">doi.org/10.1038/nature23461</a>.
+                        </p>
+                        <p>J. Bos et al., "CRYSTALS - Kyber: A CCA-Secure Module-Lattice-Based KEM," 2018 IEEE
+                        European Symposium on Security and Privacy (EuroS&P), London, UK, 2018, pp. 353-
+                        367, <a href="https://doi.org/10.1109/EuroSP.2018.00032">doi.org/10.1109/EuroSP.2018.00032</a>.
+                        </p>
+                        <p>Mosca, Michele. "Cybersecurity in a Quantum World: The Future of Digital Privacy." Global
+                        Risk Institute, 2018, <a href="https://globalriskinstitute.org/publications/cybersecurity-quantum-world">globalriskinstitute.org/publications/cybersecurity-quantum-world</a>.
+                        </p>
+                        <p>National Institute of Standards and Technology. Module-Lattice-Based Key-Encapsulation
+                        Mechanism Standard. Federal Information Processing Standards Publication (FIPS)
+                        NIST FIPS 203, U.S. Department of Commerce, 13 Aug. 2024,
+                        <a href="https://doi.org/10.6028/NIST.FIPS.203">doi.org/10.6028/NIST.FIPS.203</a>.
+                        </p>
+                        <p>Rodriguez Alvarez, Nicolas, and Fernando Rodriguez Merino. "Performance and Storage
+                        Analysis of CRYSTALS-Kyber (ML-KEM) as a Post-Quantum Replacement for RSA
+                        and ECC." arXiv, vol. 2508.01694v1 [cs.CR], 3 Aug. 2025,
+                        <a href="https://doi.org/10.48550/arXiv.2508.01694">doi.org/10.48550/arXiv.2508.01694</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-5">
+        <p>© 2026 Yasha Kosarev | <a href="https://github.com/NinzaTime/NinzaTime.github.io" target="_blank" class="text-decoration-none">GitHub</a></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
