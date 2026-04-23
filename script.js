@@ -1,5 +1,5 @@
+// Theme Logic
 const themeToggle = document.getElementById('theme-toggle');
-
 const applyTheme = (theme) => {
     const isDark = theme === 'dark';
     document.body.classList.toggle('dark-mode', isDark);
@@ -13,12 +13,13 @@ applyTheme(savedTheme);
 if (themeToggle) {
     themeToggle.onclick = () => {
         const isDark = document.body.classList.toggle('dark-mode');
-        localStorage.setItem('portfolio-theme', isDark ? 'dark' : 'light');
-        applyTheme(isDark ? 'dark' : 'light');
+        const currentTheme = isDark ? 'dark' : 'light';
+        localStorage.setItem('portfolio-theme', currentTheme);
+        applyTheme(currentTheme);
     };
 }
 
-// Persistent Uptime Logic
+// Persistent Uptime
 let bootTime = localStorage.getItem('portfolio-boot-time');
 if (!bootTime) {
     bootTime = Date.now();
@@ -29,27 +30,29 @@ setInterval(() => {
     const totalSeconds = Math.floor((Date.now() - parseInt(bootTime)) / 1000);
     const mins = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
     const secs = (totalSeconds % 60).toString().padStart(2, '0');
-    if (document.getElementById('uptime')) document.getElementById('uptime').textContent = `${mins}:${secs}`;
+    const uptimeEl = document.getElementById('uptime');
+    if (uptimeEl) uptimeEl.textContent = `${mins}:${secs}`;
 }, 1000);
 
-// Mouse Interactions (Sparkles & Spotlight)
+// Interactions
 window.addEventListener('mousemove', e => {
     document.body.style.setProperty('--x', e.clientX + 'px');
     document.body.style.setProperty('--y', e.clientY + 'px');
-    if (document.getElementById('coords')) document.getElementById('coords').textContent = `${e.clientX}, ${e.clientY}`;
+    const coords = document.getElementById('coords');
+    if (coords) coords.textContent = `${e.clientX}, ${e.clientY}`;
 
     const sparkle = document.createElement('div');
     sparkle.className = 'sparkle';
     sparkle.style.left = e.clientX + 'px';
     sparkle.style.top = e.clientY + 'px';
-    const size = Math.random() * 6 + 2;
+    const size = Math.random() * 5 + 2;
     sparkle.style.width = `${size}px`;
     sparkle.style.height = `${size}px`;
     document.body.appendChild(sparkle);
     setTimeout(() => sparkle.remove(), 800);
 });
 
-// Decode Reveal Effect
+// Decode Reveal
 const decodeEffect = () => {
     const el = document.getElementById('typewriter');
     if (!el) return;
@@ -66,7 +69,6 @@ const decodeEffect = () => {
     }, 30);
 };
 
-// Scroll and Reveal Logic
 document.addEventListener('DOMContentLoaded', () => {
     decodeEffect();
     const currentPath = window.location.pathname.split("/").pop() || "index.html";
@@ -88,7 +90,8 @@ window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrolled = Math.round((winScroll / height) * 100);
-    if (document.getElementById('scroll-pct')) document.getElementById('scroll-pct').textContent = `${scrolled}%`;
+    const scrollPct = document.getElementById('scroll-pct');
+    if (scrollPct) scrollPct.textContent = `${scrolled}%`;
     const progress = document.querySelector('.scroll-progress');
     if (progress) progress.style.width = scrolled + '%';
 });
