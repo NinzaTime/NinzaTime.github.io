@@ -3,7 +3,7 @@
     --text: #e0e0e0;
     --accent: #bd93f9; 
     --accent-rgb: 189, 147, 249;
-    --highlight: rgba(109, 32, 216, 0.4);
+    --highlight: rgba(189, 147, 249, 0.4);
     --glass: rgba(15, 15, 15, 0.75);
     --border: rgba(255, 255, 255, 0.1);
     --online: #00ff41;
@@ -14,8 +14,8 @@ body:not(.dark-mode) {
     --text: #000000;
     --accent: #6c5ce7;
     --accent-rgb: 108, 92, 231;
-    --highlight: rgba(108, 92, 231, 0.2);
-    --glass: rgba(221, 224, 45, 0.9);
+    --highlight: rgba(231, 222, 92, 0.2);
+    --glass: rgba(255, 255, 255, 0.9);
     --border: rgba(0, 0, 0, 0.1);
     --online: #28a745;
 }
@@ -80,7 +80,6 @@ body {
 
 .revision-mark {
     background: linear-gradient(120deg, var(--highlight) 0%, var(--highlight) 100%);
-    background-repeat: no-repeat;
     background-repeat: no-repeat;
     background-size: 100% 0.8em;
     background-position: 0 80%;
