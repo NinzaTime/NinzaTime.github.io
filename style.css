@@ -1,20 +1,19 @@
 :root {
     --bg: #050505;
     --text: #e0e0e0;
-    --accent: #8400ff;
-    --accent-rgb: 0, 255, 204;
+    --accent: #bd93f9; 
+    --accent-rgb: 189, 147, 249;
     --glass: rgba(15, 15, 15, 0.75);
     --border: rgba(255, 255, 255, 0.1);
 }
 
-/* HIGH-CONTRAST LIGHT MODE */
 body:not(.dark-mode) {
     --bg: #ffffff;
     --text: #000000;
-    --accent: #b1cc1b;
-    --accent-rgb: 93, 63, 211;
+    --accent: #6c5ce7;
+    --accent-rgb: 108, 92, 231;
     --glass: rgba(255, 255, 255, 0.95);
-    --border: rgba(0, 0, 0, 0.15);
+    --border: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -26,13 +25,67 @@ body {
     overflow-x: hidden;
 }
 
-/* Text Selection Fix */
-::selection {
-    background: var(--accent);
-    color: #000;
+/* --- MICRO-INTERACTION: Custom Neon Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
 }
 
-/* UI Elements */
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(transparent, var(--accent), transparent);
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* --- NAVBAR STYLES --- */
+.nav-link-sub {
+    color: var(--text) !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    display: inline-block;
+    position: relative;
+    padding: 5px 0;
+    transition: opacity 0.3s ease;
+    opacity: 0.6; /* Dim inactive links slightly */
+}
+
+.nav-link-sub:hover {
+    opacity: 1;
+}
+
+/* --- MICRO-INTERACTION: Active Link Pulse --- */
+.nav-link-sub.active {
+    opacity: 1;
+}
+
+.nav-link-sub.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    border-radius: 2px;
+    animation: nav-pulse 2s infinite ease-in-out;
+}
+
+@keyframes nav-pulse {
+    0%, 100% { opacity: 0.5; transform: scaleX(0.9); }
+    50% { opacity: 1; transform: scaleX(1); }
+}
+
+/* --- REST OF EXISTING STYLES --- */
 .scroll-progress {
     position: fixed;
     top: 0; left: 0; height: 4px;
@@ -55,16 +108,6 @@ body {
     z-index: 1000;
 }
 
-.nav-link-sub {
-    color: var(--text) !important;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    display: inline-block;
-    transition: transform 0.2s;
-}
-
 .bento-card {
     background: var(--glass);
     backdrop-filter: blur(20px);
@@ -75,22 +118,11 @@ body {
     transition: border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
-.bento-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
-/* REVISION MARK FIX */
 .revision-mark {
     background-color: rgba(var(--accent-rgb), 0.15) !important;
     border-bottom: 2px solid var(--accent) !important;
     padding: 0 4px !important;
     border-radius: 4px !important;
-    display: inline !important;
-    position: relative !important;
-    z-index: 5 !important;
-    color: var(--text) !important;
-    font-style: italic;
 }
 
 #typewriter {
@@ -99,12 +131,10 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 4s linear infinite;
-    user-select: text;
 }
 
 @keyframes shimmer { to { background-position: 200% center; } }
 
-/* Reveal Animations */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -112,12 +142,6 @@ body {
 }
 
 .reveal.active { opacity: 1; transform: translateY(0); }
-
-.reveal p, .reveal h2, .reveal h3, .reveal .revision-mark {
-    opacity: 0;
-    transform: translateY(15px);
-    transition: all 0.6s ease-out;
-}
 
 #theme-toggle {
     position: fixed;
@@ -127,7 +151,5 @@ body {
     color: var(--text);
     padding: 0.8rem 1.5rem;
     border-radius: 100px;
-    backdrop-filter: blur(10px);
     z-index: 2000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }

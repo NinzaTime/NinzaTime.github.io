@@ -6,7 +6,6 @@ const applyTheme = (theme) => {
     if (themeToggle) {
         themeToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
     }
-    // Synchronize spotlight colors with theme
     document.body.style.setProperty('--accent-rgb', isDark ? '189, 147, 249' : '108, 92, 231');
 };
 
@@ -22,13 +21,20 @@ if (themeToggle) {
     };
 }
 
-// Mouse tracking for spotlight
+// Mouse tracking
 window.addEventListener('mousemove', e => {
     document.body.style.setProperty('--x', e.clientX + 'px');
     document.body.style.setProperty('--y', e.clientY + 'px');
 });
 
-// Staggered reveal observer
+// Auto-detect Active Page
+const currentPath = window.location.pathname.split("/").pop() || "index.html";
+document.querySelectorAll('.nav-link-sub').forEach(link => {
+    if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+    }
+});
+
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -43,7 +49,6 @@ const observer = new IntersectionObserver(entries => {
     });
 }, { threshold: 0.1 });
 
-// Typewriter
 const titleText = "Logic, Strategy, and Systems.";
 let charIndex = 0;
 const typeEffect = () => {
@@ -58,8 +63,6 @@ const typeEffect = () => {
 document.addEventListener('DOMContentLoaded', () => {
     typeEffect();
     document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
-    
-    // Scroll progress listener
     window.onscroll = () => {
         const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
         const progress = document.querySelector('.scroll-progress');
