@@ -26,11 +26,25 @@ if (!localStorage.getItem('portfolio-boot-time')) {
 }
 
 setInterval(() => {
-    const totalSeconds = Math.floor((Date.now() - parseInt(bootTime)) / 1000);
-    const mins = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
-    const secs = (totalSeconds % 60).toString().padStart(2, '0');
+    const now = Date.now();
+    const diff = Math.floor((now - parseInt(bootTime)) / 1000);
+
+    const years = Math.floor(diff / (31536000));
+    const months = Math.floor((diff % 31536000) / 2592000);
+    const days = Math.floor((diff % 2592000) / 864000);
+    const hours = Math.floor((diff % 86400) / 3600);
+    const mins = Math.floor((diff % 3600) / 60);
+    const secs = diff % 60;
+
+    let timeString = "";
+    if (years > 0) timeString += `${years}y `;
+    if (months > 0) timeString += `${months}m `;
+    if (days > 0) timeString += `${days}d `;
+    
+    timeString += `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
     const uptimeEl = document.getElementById('uptime');
-    if (uptimeEl) uptimeEl.textContent = `${mins}:${secs}`;
+    if (uptimeEl) uptimeEl.textContent = timeString;
 }, 1000);
 
 // --- 3. MOUSE & SPARKLE INTERACTION ---
@@ -70,7 +84,7 @@ const decodeEffect = () => {
             clearInterval(interval);
         }
         
-        iteration += 1; 
+        iteration += 1/2; 
     }, 20); 
 };
 
