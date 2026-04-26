@@ -18,7 +18,7 @@ This is a custom-engineered digital ecosystem designed to showcase academic writ
 **STATE PERSISTENCE**
 The system logic is built around the `localStorage` API, creating a "Stateful Static Site." 
 * **Session Epoch:** Captures the Unix timestamp of the initial visit, allowing the system to calculate real-time aging across multiple sub-pages.
-* **Theme Synchronization:** Monitors user preference to prevent layout shifts, ensuring the "Amethyst" or "Slate" palettes are applied before the DOM fully renders.
+* **Theme Synchronization:** Monitors user preference to prevent layout shifts, ensuring the "Amethyst" or "Yellow" palettes are applied before the DOM fully renders.
 
 **VISUAL SYNTHESIS**
 Information is not merely displayed; it is decrypted.
@@ -38,43 +38,22 @@ Information is not merely displayed; it is decrypted.
 
 ---
 
-### DIRECTORY MAPPING
+### CORE COMPONENTS
 
-**ROOT / INTRODUCTION**
-The terminal-themed hub that initializes the system state and establishes the visual design language.
-
-**META-SYNTHESIS**
-A deep-dive reflection into the evolution of writing and research strategy.
-
-**MAJOR ARTIFACTS**
-High-stakes global revisions presented through a specialized pedagogical lens.
-
-**BENTO LIBRARY**
-A grid-based collection of minor revisions, organized for maximum structural analysis and readability.
-
----
-
-### DESIGN PHILOSOPHY
-
-> "Complexity is a distraction. Strategy is the goal."
-
-This project prioritizes **Structural Integrity**. The "Bento" layout ensures that content is never cluttered, while hardware-accelerated CSS layers ensure the UI remains grounded and stable. Whether in the high-contrast **Neon Purple** of Dark Mode or the professional **Slate Blue** of Light Mode, the goal remains the same: clarity through strategic design.
-
----
-
-[ SYSTEM STATUS: STABLE ]
-[ REVISION: 2026.04 ]
-[ AUTHOR: YASHA KOSAREV ]
-
----
-
-### Core Components
 * **`index.html`** | Root directory and entry point.
 * **`reflection.html`** | Academic synthesis and course reflection.
 * **`project.html`** | Project 2: Global Revision (Major Artifact).
 * **`minor.html`** | Segmented minor writing revisions.
 * **`style.css`** | The "Amethyst" design system (Neon-Purple/Dark Mode).
 * **`script.js`** | High-speed decode logic and uptime persistence.
+---
+
+### DESIGN PHILOSOPHY
+
+> "Complexity is a distraction. Strategy is the goal."
+
+This project prioritizes **Structural Integrity**. The "Bento" layout ensures that content is never cluttered, while hardware-accelerated CSS layers ensure the UI remains grounded and stable. Whether in the high-contrast **Neon Purple** of Dark Mode or the **Light Yellow** of Light Mode, the goal remains the same: clarity through strategic design.
+
 ---
 
 ## 🚀 Deployment
