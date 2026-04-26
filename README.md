@@ -1,4 +1,4 @@
-# 🌌 Logic, Strategy, & System
+### Logic, Strategy, & System
 ### The Electronic Writing Portfolio of Yasha Kosarev
 **Florida State University | ENC 2135: Research, Genre, and Context**
 
@@ -56,7 +56,7 @@ This project prioritizes **Structural Integrity**. The "Bento" layout ensures th
 
 ---
 
-## 🚀 Deployment
+### Deployment
 Automated deployment via **GitHub Pages**.
 URL: [https://ninzatime.github.io/](https://ninzatime.github.io/)
 
