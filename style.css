@@ -30,7 +30,6 @@ body {
     margin: 0;
 }
 
-/* Navbar container stability fix */
 .navbar {
     position: sticky;
     top: 0;

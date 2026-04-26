@@ -1,4 +1,4 @@
-// --- 1. THEME ENGINE ---
+// --- THEME ENGINE ---
 const themeToggle = document.getElementById('theme-toggle');
 const applyTheme = (theme) => {
     const isDark = theme === 'dark';
@@ -19,7 +19,7 @@ if (themeToggle) {
     };
 }
 
-// --- 2. UPTIME PERSISTENCE ---
+// --- UPTIME PERSISTENCE ---
 let bootTime = localStorage.getItem('portfolio-boot-time') || Date.now();
 if (!localStorage.getItem('portfolio-boot-time')) {
     localStorage.setItem('portfolio-boot-time', bootTime);
@@ -47,7 +47,7 @@ setInterval(() => {
     if (uptimeEl) uptimeEl.textContent = timeString;
 }, 1000);
 
-// --- 3. MOUSE & SPARKLE INTERACTION ---
+// --- MOUSE & SPARKLE INTERACTION ---
 window.addEventListener('mousemove', e => {
     document.body.style.setProperty('--x', e.clientX + 'px');
     document.body.style.setProperty('--y', e.clientY + 'px');
@@ -66,7 +66,7 @@ window.addEventListener('mousemove', e => {
     }, 800);
 });
 
-// --- 4. DECODE REVEAL (STABILIZED SPEED) ---
+// --- DECODE REVEAL ---
 const decodeEffect = () => {
     const el = document.getElementById('typewriter');
     if (!el) return;
@@ -88,7 +88,7 @@ const decodeEffect = () => {
     }, 20); 
 };
 
-// --- 5. INITIALIZATION ---
+// --- INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', () => {
     decodeEffect();
     
