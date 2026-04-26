@@ -8,15 +8,6 @@
 
 ---
 
--------------------------------------------------------------------------------
-   __    _____  ____  ____  ___      ___  ____  ____   __   ____  ____  ____  __ 
-  (  )  (  _  )( ___)(_  _)/ __)    / __)(_  _)(  _ \ (  ) (_  _)( ___)(  _ \(  )
-   )(__  )(_)(  )__)  _)(_( (__    ( (__   )(   )   /  )(    )(   )__)  )   / )( 
-  (____)(_____)(__)  (____)\___)    \___) (__) (_)\_) (__)  (__) (____)(_)\_)(__)
-
-  THE ELECTRONIC WRITING PORTFOLIO OF YASHA KOSAREV | FLORIDA STATE UNIVERSITY
--------------------------------------------------------------------------------
-
 ### SYSTEM MANIFESTO
 This is a custom-engineered digital ecosystem designed to showcase academic writing through the lens of computational logic. It serves as a bridge between the structured world of computer science and the fluid realm of rhetorical research. Every line of text and every pixel of the interface is a calculated move in a larger strategy of academic self-expression.
 
