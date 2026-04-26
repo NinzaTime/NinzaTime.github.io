@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             osEl.textContent = "LINUX.KERNEL";
         }
         else {
-            osEl.textContent = "UNKNOWN.OS";
+            osEl.textContent = "WINDOWS.SYS";
         }
     }
 });
