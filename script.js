@@ -115,26 +115,26 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // 1. Check for Android specifically first
         if (ua.indexOf("Android") !== -1) {
-            osEl.textContent = "ANDROID.OS";
+            osEl.textContent = "ANDROID";
         } 
         // 2. Check for iOS (iPhone/iPad)
         else if (ua.indexOf("iPhone") !== -1 || ua.indexOf("iPad") !== -1) {
-            osEl.textContent = "IOS.MOBILE";
+            osEl.textContent = "IOS";
         }
         // 3. Check for Windows
         else if (ua.indexOf("Win") !== -1) {
-            osEl.textContent = "WINDOWS.SYS";
+            osEl.textContent = "WINDOWS";
         }
         // 4. Check for Mac (Desktop)
         else if (ua.indexOf("Mac") !== -1) {
-            osEl.textContent = "MACOS.CORE";
+            osEl.textContent = "MACOS";
         }
         // 5. General Linux (Only if it's not Android)
         else if (ua.indexOf("Linux") !== -1) {
-            osEl.textContent = "LINUX.KERNEL";
+            osEl.textContent = "LINUX";
         }
         else {
-            osEl.textContent = "WINDOWS.SYS";
+            osEl.textContent = "WINDOWS";
         }
     }
 });
