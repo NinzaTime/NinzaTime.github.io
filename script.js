@@ -110,7 +110,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
     
     const osEl = document.getElementById('user-os');
-    if (osEl) {
-        osEl.textContent = window.navigator.platform.includes('Win') ? 'WINDOWS' : 'MACOS';
-    }
+if (osEl) {
+    const ua = window.navigator.userAgent;
+    const platform = window.navigator.platform;
+    
+    if (ua.indexOf("Win") !== -1) osEl.textContent = "WINDOWS";
+    else if (ua.indexOf("Mac") !== -1) osEl.textContent = "MACOS";
+    else if (ua.indexOf("Linux") !== -1) osEl.textContent = "LINUX";
+    else if (ua.indexOf("Android") !== -1) osEl.textContent = "ANDROID";
+    else if (ua.indexOf("like Mac") !== -1) osEl.textContent = "IOS";
+    else osEl.textContent = "WINDOWS";
+}
 });
