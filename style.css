@@ -72,7 +72,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shimmer 4s linear infinite;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
 }
 
 .revision-mark {
@@ -183,7 +183,8 @@ body {
     }
 
     #typewriter {
-        font-size: 1.8rem;
+        letter-spacing: 0.05em; /* Tighten for smaller screens */
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
     }
 
     /* Keeps the theme toggle accessible on mobile */
