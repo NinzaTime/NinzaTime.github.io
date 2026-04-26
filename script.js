@@ -110,15 +110,31 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(r => observer.observe(r));
     
     const osEl = document.getElementById('user-os');
-if (osEl) {
-    const ua = window.navigator.userAgent;
-    const platform = window.navigator.platform;
-    
-    if (ua.indexOf("Win") !== -1) osEl.textContent = "WINDOWS";
-    else if (ua.indexOf("Mac") !== -1) osEl.textContent = "MACOS";
-    else if (ua.indexOf("Linux") !== -1) osEl.textContent = "LINUX";
-    else if (ua.indexOf("Android") !== -1) osEl.textContent = "ANDROID";
-    else if (ua.indexOf("like Mac") !== -1) osEl.textContent = "IOS";
-    else osEl.textContent = "WINDOWS";
-}
+    if (osEl) {
+        const ua = window.navigator.userAgent;
+        
+        // 1. Check for Android specifically first
+        if (ua.indexOf("Android") !== -1) {
+            osEl.textContent = "ANDROID.OS";
+        } 
+        // 2. Check for iOS (iPhone/iPad)
+        else if (ua.indexOf("iPhone") !== -1 || ua.indexOf("iPad") !== -1) {
+            osEl.textContent = "IOS.MOBILE";
+        }
+        // 3. Check for Windows
+        else if (ua.indexOf("Win") !== -1) {
+            osEl.textContent = "WINDOWS.SYS";
+        }
+        // 4. Check for Mac (Desktop)
+        else if (ua.indexOf("Mac") !== -1) {
+            osEl.textContent = "MACOS.CORE";
+        }
+        // 5. General Linux (Only if it's not Android)
+        else if (ua.indexOf("Linux") !== -1) {
+            osEl.textContent = "LINUX.KERNEL";
+        }
+        else {
+            osEl.textContent = "UNKNOWN.OS";
+        }
+    }
 });
